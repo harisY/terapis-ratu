@@ -15,8 +15,8 @@ const CONFIG = {
   phone: "+62 812-3898-6489",       // tampil di halaman & dipakai untuk link tel:
   email: "",                      // opsional: isi bila ada, lalu tambahkan elemen [data-mail-link] di HTML
   address: "Jl. Lintas Sumbawa, Desa Tambe, Kec. Bolo, Kabupaten Bima, Nusa Tenggara Barat", // fallback petunjuk arah bila koordinat kosong
-  latitude: "[LATITUDE]",         // dari Google Maps, contoh: -8.4608
-  longitude: "[LONGITUDE]",       // contoh: 118.7266
+  latitude: "-8.5105341",
+  longitude: "118.5954031",
   utcOffsetHours: 8,              // WITA = UTC+8 (Asia/Makassar)
   // Jam operasional per hari (0 = Minggu ... 6 = Sabtu). null = tutup.
   // HARUS sama dengan tabel jam di index.html dan JSON-LD.
