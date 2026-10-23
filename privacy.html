@@ -3,7 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>document.documentElement.classList.add('js');</script>
+  <!-- Cegah kedipan warna: pasang data-theme sebelum CSS dirender -->
+  <script>
+    (function () {
+      var root = document.documentElement, theme = null;
+      root.classList.add('js');
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <!-- GANTI: Fisioterapi Ratu Alhilwani, [DOMAIN] -->
   <title>Kebijakan Privasi | Fisioterapi Ratu Alhilwani, Bolo, Bima</title>
@@ -11,8 +22,10 @@
   <!-- SEMENTARA: HAPUS noindex saat situs resmi tayang, ganti jadi: index, follow -->
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://[DOMAIN]/privacy.html">
-  <meta name="theme-color" content="#f6f5f0">
-  <meta name="color-scheme" content="light">
+  <!-- Warna address bar browser (terang / gelap) -->
+  <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121715" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
   <meta property="og:title" content="Kebijakan Privasi | Fisioterapi Ratu Alhilwani">
@@ -25,8 +38,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 
@@ -47,6 +61,8 @@
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
       <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
     </defs>
   </svg>
@@ -54,14 +70,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Fisioterapi Ratu Alhilwani - ke beranda">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-          <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M20 31c-6-3-9-7.5-9-12 5 0 8 1.8 9 5 1-3.2 4-5 9-5 0 4.5-3 9-9 12z" fill="currentColor"/>
-        </svg>
         <span>Fisioterapi Ratu Alhilwani</span>
       </a>
       <div class="header-actions">
         <a class="btn btn-outline btn-sm" href="index.html"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg> Kembali ke beranda</a>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Beralih ke mode gelap">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -80,6 +96,7 @@
         <h2>2. Data yang kami proses di website ini</h2>
         <ul>
           <li><strong>Data formulir booking</strong> (nama, nomor WhatsApp, layanan, fisioterapis pilihan, jadwal, jenis sesi, dan keluhan singkat yang bersifat opsional) yang Anda isi sendiri. Keluhan kesehatan termasuk data pribadi yang sensitif, sehingga hanya isi seperlunya.</li>
+          <li><strong>Preferensi tampilan</strong> (mode terang atau gelap) yang disimpan di peramban Anda.</li>
           <li><strong>Data teknis standar</strong> yang dapat dicatat oleh penyedia hosting, seperti alamat IP dan jenis peramban. [SESUAIKAN dengan penyedia hosting yang dipakai]</li>
         </ul>
 
@@ -98,7 +115,7 @@
         </ul>
 
         <h2>6. Cookie dan penyimpanan di peramban</h2>
-        <p>Website ini tidak menyimpan data apa pun di penyimpanan lokal peramban dan tidak menggunakan cookie pelacak atau iklan. Layanan pihak ketiga yang dimuat (Google Fonts dan Google Maps) dapat menerapkan kebijakannya sendiri. [SESUAIKAN bila nanti menambahkan analitik]</p>
+        <p>Kami hanya menyimpan satu pengaturan di penyimpanan lokal peramban Anda, yaitu pilihan mode terang atau gelap. Data ini tidak berisi informasi pribadi dan dapat Anda hapus kapan saja lewat pengaturan peramban. Website ini tidak menggunakan cookie pelacak atau iklan. Layanan pihak ketiga yang dimuat (Google Fonts dan Google Maps) dapat menerapkan kebijakannya sendiri. [SESUAIKAN bila nanti menambahkan analitik]</p>
 
         <h2>7. Hak Anda</h2>
         <p>Sesuai peraturan pelindungan data pribadi yang berlaku di Indonesia, Anda berhak meminta akses, perbaikan, atau penghapusan data pribadi Anda yang kami simpan (misalnya riwayat percakapan WhatsApp). Hubungi kami melalui WhatsApp atau telepon di +62 812-3898-6489.</p>

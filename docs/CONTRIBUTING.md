@@ -23,10 +23,12 @@ perilakunya sama dengan hosting (font, peta, dan cache).
 |------|-----|
 | `index.html` | Halaman utama: 12 section, JSON-LD, sprite ikon SVG |
 | `privacy.html` | Kebijakan privasi |
-| `css/style.css` | Semua gaya. Bagian 1 = design tokens (warna, font, ukuran) |
+| `css/tokens.css` | Design tokens: warna (terang & gelap), font, ukuran, spasi, radius, bayangan, gerak |
+| `css/style.css` | Komponen dan layout, hanya memakai `var(--...)` dari tokens.css |
 | `js/main.js` | `CONFIG` di bagian atas, lalu seluruh interaksi |
 | `assets/` | Favicon, logo, gambar OG, placeholder foto |
 | `robots.txt`, `sitemap.xml` | SEO |
+| `docs/DESIGN-SYSTEM.md` | Strategi desain, palet, tipografi, komponen, dan aturan gerak |
 | `docs/CONFIG.md` | Referensi `CONFIG` dan daftar placeholder (dihasilkan otomatis) |
 | `scripts/gen-docs.js` | Pembuat `docs/CONFIG.md` |
 
@@ -48,8 +50,10 @@ node -e "const h=require('fs').readFileSync('index.html','utf8');[...h.matchAll(
 
 ## Aturan saat mengubah kode
 
-- **Warna** hanya lewat CSS variable di `css/style.css` bagian 1. Jangan tulis nilai hex di tempat lain.
-  Situs hanya memakai tema terang.
+- **Warna dan ukuran** hanya lewat token di `css/tokens.css`. Jangan tulis nilai hex, px, atau rem di
+  `style.css` (pengecualian: nilai breakpoint `@media`). Mode gelap ada di dua blok di tokens.css
+  (`[data-theme="dark"]` dan `prefers-color-scheme: dark`); ubah keduanya bersamaan.
+- **Tanpa logo:** nama klinik di navbar dan footer berupa teks. Jangan menambah tanda grafis sampai ada logo resmi.
 - **Data klinik** (nomor WhatsApp, telepon, jam, alamat fallback, koordinat) diubah di `CONFIG`.
   Nama, alamat, dan telepon juga tertulis di HTML dan JSON-LD, dan harus sama persis.
 - **Jam operasional** ada di tiga tempat dan harus sama: `CONFIG.hours`, tabel jam di section
@@ -75,10 +79,12 @@ Tidak ada test otomatis. Jalankan checklist ini sebelum commit yang mengubah tam
 2. Semua tombol WhatsApp membuka `wa.me/6281238986489` dengan pesan yang sesuai.
 3. Form booking: kirim kosong menampilkan error dan memindahkan fokus; kirim valid membuka WhatsApp
    dengan jadwal "tanggal, pagi/siang/sore".
-4. Navigasi keyboard: skip link, menu mobile (Esc menutup), FAQ, carousel, fokus selalu terlihat.
-5. Aktifkan `prefers-reduced-motion`: pulse dan fade-in tidak berjalan. (Carousel tidak memakai auto-play.)
-6. Lebar 320, 390, 768, 1024, 1280, dan 1440px tanpa scroll horizontal. Coba juga dengan nama klinik panjang.
-7. Lighthouse (Performance, Accessibility, Best Practices, SEO) di mobile.
+4. Mode terang dan gelap: tombol toggle bekerja, label tombol berubah, pilihan tersimpan,
+   tidak ada kedipan saat muat ulang, dan tanpa pilihan manual situs mengikuti pengaturan sistem.
+5. Navigasi keyboard: skip link, menu mobile (Esc menutup), FAQ, carousel, fokus selalu terlihat.
+6. Aktifkan `prefers-reduced-motion`: pulse dan fade-in tidak berjalan. (Carousel tidak memakai auto-play.)
+7. Lebar 320, 390, 768, 1024, 1280, dan 1440px tanpa scroll horizontal. Coba juga dengan nama klinik panjang.
+8. Lighthouse (Performance, Accessibility, Best Practices, SEO) di mobile.
 
 ## Commit dan PR
 

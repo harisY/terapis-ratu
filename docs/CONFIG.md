@@ -40,7 +40,7 @@ Total 22 jenis placeholder (komentar HTML tidak dihitung).
 
 | Placeholder | Jumlah | File |
 |-------------|--------|------|
-| `[DOMAIN]` | 18 | index.html, privacy.html, sitemap.xml, robots.txt |
+| `[DOMAIN]` | 17 | index.html, privacy.html, sitemap.xml, robots.txt |
 | `[PETUNJUK ARAH]` | 5 | index.html |
 | `[HARGA]` | 3 | index.html |
 | `[LAYANAN YANG DIIKUTI]` | 3 | index.html |

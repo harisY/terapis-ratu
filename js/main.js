@@ -113,6 +113,54 @@ const CONFIG = {
     setInterval(update, 60000);
   }
 
+  /* ------------------------- Tema gelap / terang ------------------------- */
+
+  function safeStorage(action, key, value) {
+    try {
+      return action === "get" ? localStorage.getItem(key) : localStorage.setItem(key, value);
+    } catch (error) {
+      return null; // penyimpanan diblokir (mode privat, dll.): abaikan, fitur tetap jalan
+    }
+  }
+
+  function applyTheme(theme, persist) {
+    const root = document.documentElement;
+    root.classList.add("theme-anim");
+    root.setAttribute("data-theme", theme);
+    if (persist) safeStorage("set", "theme", theme);
+
+    // Samakan warna address bar dengan tema aktif (nilai diambil dari token --bg)
+    const bg = getComputedStyle(root).getPropertyValue("--bg").trim();
+    $$('meta[name="theme-color"]').forEach((meta) => meta.setAttribute("content", bg));
+
+    const toggle = $("#theme-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-label", theme === "dark" ? "Beralih ke mode terang" : "Beralih ke mode gelap");
+    }
+    window.setTimeout(() => root.classList.remove("theme-anim"), 400);
+  }
+
+  function initTheme() {
+    const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    applyTheme(current, false);
+
+    const toggle = $("#theme-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next, true);
+      });
+    }
+
+    // Ikuti perubahan pengaturan sistem selama pengguna belum memilih manual
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const onSystemChange = (event) => {
+      const saved = safeStorage("get", "theme");
+      if (saved !== "light" && saved !== "dark") applyTheme(event.matches ? "dark" : "light", false);
+    };
+    if (media.addEventListener) media.addEventListener("change", onSystemChange);
+  }
+
   /* ------------------------- Link WhatsApp & kontak ------------------------- */
 
   function initWhatsAppLinks() {
@@ -414,6 +462,7 @@ const CONFIG = {
   /* ------------------------- Init ------------------------- */
 
   function init() {
+    initTheme();
     initWhatsAppLinks();
     initContactLinks();
     initNav();

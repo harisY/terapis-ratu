@@ -1,0 +1,246 @@
+/* =====================================================================
+   tokens.css — Design tokens "Eucalyptus & Clay" (arah: Hangat & Natural)
+   Satu-satunya tempat nilai warna, font, ukuran, spasi, radius, bayangan,
+   dan durasi gerak. style.css hanya boleh memakai var(--...).
+   Dokumentasi lengkap: docs/DESIGN-SYSTEM.md
+   ===================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- Tipografi ---------- */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --fs-display: clamp(2.25rem, 1.55rem + 3vw, 3.5rem);   /* 36 -> 56px : H1 hero */
+  --fs-h1: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);         /* 32 -> 44px : H1 halaman lain */
+  --fs-h2: clamp(1.625rem, 1.35rem + 1.2vw, 2.25rem);    /* 26 -> 36px */
+  --fs-h3: 1.25rem;                                      /* 20px */
+  --fs-h4: 1.125rem;                                     /* 18px */
+  --fs-lead: 1.1875rem;                                  /* 19px */
+  --fs-body: 1.0625rem;                                  /* 17px : teks isi (minimal 16px) */
+  --fs-small: 0.9375rem;                                 /* 15px : teks pendukung */
+  --fs-label: 0.9375rem;                                 /* 15px : label form */
+  --fs-button: 1rem;                                     /* 16px */
+  --fs-eyebrow: 0.875rem;                                /* 14px : label kapital dekoratif */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-body: 1.7;
+  --tracking-display: -0.015em;
+  --tracking-eyebrow: 0.1em;
+
+  /* ---------- Spasi (basis 4px) ---------- */
+  --space-1: 0.25rem;   /* 4  */
+  --space-2: 0.5rem;    /* 8  */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+  --space-section: clamp(var(--space-8), 8vw, var(--space-9));
+
+  /* ---------- Layout ---------- */
+  --container: 1160px;
+  --gutter: clamp(1.25rem, 3vw, 2rem);   /* 20 -> 32px */
+  --measure: 62ch;                       /* lebar baris teks nyaman */
+  --header-h: 72px;
+  --tap: 48px;                           /* area sentuh standar (min. 44px) */
+  --tap-min: 44px;                       /* area sentuh minimum */
+
+  /* ---------- Ukuran komponen ---------- */
+  --card-min: 300px;          /* lebar minimum kartu di grid */
+  --footer-col-min: 240px;
+  --qi-min-h: 64px;           /* tinggi minimum kartu info cepat */
+  --faq-row-h: 60px;
+  --width-reading: 760px;     /* carousel & halaman privasi */
+  --width-faq: 820px;
+  --hero-art-max: 500px;
+  --avatar-size: 200px;
+  --map-min-h: 320px;
+  --textarea-min-h: 110px;
+  --dot-size: 10px;
+  --check-size: 20px;
+  --checkbox-size: 22px;
+  --fab-size: 60px;
+  --fab-icon: 30px;
+  --fab-clearance: 84px;      /* ruang di bawah footer agar tidak tertutup tombol melayang */
+  --tooltip-offset: 72px;
+  --quote-size: 4.5rem;
+  --deco-arc-lg: 720px;       /* lengkung dekoratif hero */
+  --blur-header: 14px;
+  --focus-offset: 3px;
+  --lift-1: -1px;             /* angkat saat hover */
+  --lift-2: -2px;
+  --lift-3: -3px;
+
+  /* ---------- Bentuk ---------- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --border-1: 1px;
+  --border-2: 1.5px;
+  --border-3: 2px;
+
+  /* ---------- Gerak ---------- */
+  --dur-1: 150ms;   /* hover, fokus */
+  --dur-2: 250ms;   /* buka-tutup, ganti tema */
+  --dur-3: 400ms;   /* elemen masuk */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---------- Warna: MODE TERANG ---------- */
+  --bg: #faf7f2;            /* krem hangat */
+  --bg-alt: #f2ede4;        /* pasir */
+  --surface: #ffffff;
+  --surface-2: #f7f3ec;
+  --text: #1f2622;          /* tinta hijau-hitam */
+  --muted: #56605a;
+  --line: #e4ddd1;
+  --field-border: #858b82;
+
+  --primary: #2f5e4e;       /* eucalyptus */
+  --primary-hover: #244a3d;
+  --primary-active: #1c3b31;
+  --on-primary: #ffffff;
+  --primary-soft: #e3ede7;
+
+  --secondary: #4a7a8c;     /* biru danau, untuk aksen informasi */
+  --secondary-soft: #e2edf1;
+  --accent: #c0714c;        /* tanah liat (clay), dekoratif */
+  --accent-text: #9a4b2b;   /* clay untuk teks/badge */
+  --accent-soft: #f6e4d9;
+
+  --wa: #1b7f55;
+  --wa-hover: #146542;
+  --on-wa: #ffffff;
+
+  --ok: #1b7f55;
+  --ok-soft: #e1f2e9;
+  --warn: #7a4f00;
+  --warn-soft: #fbf0d9;
+  --warn-line: #ead3a0;
+  --danger: #b3261e;
+  --danger-soft: #fbe5e2;
+  --info: #2c5f8a;
+  --info-soft: #e3eef7;
+  --closed: #b3402f;
+  --focus: #1f5fbf;
+
+  --header-bg: color-mix(in srgb, var(--bg) 86%, transparent);
+  --shadow-1: 0 1px 2px rgba(31, 38, 34, 0.06);
+  --shadow-2: 0 1px 2px rgba(31, 38, 34, 0.05), 0 8px 24px rgba(31, 38, 34, 0.07);
+  --shadow-3: 0 2px 4px rgba(31, 38, 34, 0.05), 0 18px 40px rgba(31, 38, 34, 0.10);
+
+  --footer-bg: #1f2b26;
+  --footer-text: #eef2ef;
+  --footer-muted: #b9c6bf;
+  --footer-link: #bfe0cf;
+  --footer-line: #34443d;
+
+  --img-filter: none;
+}
+
+/* ---------- Warna: MODE GELAP ----------
+   Ditulis dua kali (pilihan manual & pengaturan sistem). Bila mengubah satu, ubah keduanya. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121715;
+  --bg-alt: #171e1b;
+  --surface: #1c2421;
+  --surface-2: #222b27;
+  --text: #ecf1ee;
+  --muted: #a9b6af;
+  --line: #2f3a35;
+  --field-border: #7e8c85;
+  --primary: #8cc7ae;
+  --primary-hover: #a5d5c0;
+  --primary-active: #bfe2d2;
+  --on-primary: #0e1a15;
+  --primary-soft: #213a30;
+  --secondary: #8dbdd0;
+  --secondary-soft: #1c2e35;
+  --accent: #d98e6b;
+  --accent-text: #e8ad8d;
+  --accent-soft: #3a271e;
+  --wa: #4fc38a;
+  --wa-hover: #6ad3a0;
+  --on-wa: #07150e;
+  --ok: #5fd39a;
+  --ok-soft: #193326;
+  --warn: #f1c76b;
+  --warn-soft: #33290f;
+  --warn-line: #5b4a1c;
+  --danger: #ff9c8f;
+  --danger-soft: #3a1d1a;
+  --info: #8dbde6;
+  --info-soft: #1b2b39;
+  --closed: #f08a78;
+  --focus: #8db8ff;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.3), 0 18px 40px rgba(0, 0, 0, 0.45);
+  --footer-bg: #0c110f;
+  --footer-text: #e4ece7;
+  --footer-muted: #a9b9af;
+  --footer-link: #9fd2b8;
+  --footer-line: #25322b;
+  --img-filter: brightness(0.88) contrast(1.02);
+}
+
+/* Fallback tanpa JS: ikuti pengaturan sistem (nilai sama dengan blok di atas) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121715;
+    --bg-alt: #171e1b;
+    --surface: #1c2421;
+    --surface-2: #222b27;
+    --text: #ecf1ee;
+    --muted: #a9b6af;
+    --line: #2f3a35;
+    --field-border: #7e8c85;
+    --primary: #8cc7ae;
+    --primary-hover: #a5d5c0;
+    --primary-active: #bfe2d2;
+    --on-primary: #0e1a15;
+    --primary-soft: #213a30;
+    --secondary: #8dbdd0;
+    --secondary-soft: #1c2e35;
+    --accent: #d98e6b;
+    --accent-text: #e8ad8d;
+    --accent-soft: #3a271e;
+    --wa: #4fc38a;
+    --wa-hover: #6ad3a0;
+    --on-wa: #07150e;
+    --ok: #5fd39a;
+    --ok-soft: #193326;
+    --warn: #f1c76b;
+    --warn-soft: #33290f;
+    --warn-line: #5b4a1c;
+    --danger: #ff9c8f;
+    --danger-soft: #3a1d1a;
+    --info: #8dbde6;
+    --info-soft: #1b2b39;
+    --closed: #f08a78;
+    --focus: #8db8ff;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.3), 0 18px 40px rgba(0, 0, 0, 0.45);
+    --footer-bg: #0c110f;
+    --footer-text: #e4ece7;
+    --footer-muted: #a9b9af;
+    --footer-link: #9fd2b8;
+    --footer-line: #25322b;
+    --img-filter: brightness(0.88) contrast(1.02);
+  }
+}
