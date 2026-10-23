@@ -9,11 +9,12 @@
    dari objek ini.
    --------------------------------------------------------------------- */
 const CONFIG = {
-  clinicName: "[NAMA KLINIK]",
+  clinicName: "Fisioterapi Ratu Alhilwani",
   // Format internasional: tanpa "+", tanpa 0 di depan, tanpa spasi/strip. Contoh: 6281234567890
-  waNumber: "62xxxxxxxxxx",
-  phone: "[NOMOR TELEPON]",       // tampil di halaman & dipakai untuk link tel:
-  email: "[EMAIL]",
+  waNumber: "6281238986489",
+  phone: "+62 812-3898-6489",       // tampil di halaman & dipakai untuk link tel:
+  email: "",                      // opsional: isi bila ada, lalu tambahkan elemen [data-mail-link] di HTML
+  address: "Jl. Lintas Sumbawa, Desa Tambe, Kec. Bolo, Kabupaten Bima, Nusa Tenggara Barat", // fallback petunjuk arah bila koordinat kosong
   latitude: "[LATITUDE]",         // dari Google Maps, contoh: -8.4608
   longitude: "[LONGITUDE]",       // contoh: 118.7266
   utcOffsetHours: 8,              // WITA = UTC+8 (Asia/Makassar)
@@ -179,14 +180,16 @@ const CONFIG = {
     $$("[data-tel-link]").forEach((el) => {
       if (phoneDigits) el.setAttribute("href", "tel:" + phoneDigits);
     });
-    $$("[data-mail-link]").forEach((el) => el.setAttribute("href", "mailto:" + CONFIG.email));
+    if (CONFIG.email) {
+      $$("[data-mail-link]").forEach((el) => el.setAttribute("href", "mailto:" + CONFIG.email));
+      $$('[data-config-text="email"]').forEach((el) => { el.textContent = CONFIG.email; });
+    }
     $$('[data-config-text="phone"]').forEach((el) => { el.textContent = CONFIG.phone; });
-    $$('[data-config-text="email"]').forEach((el) => { el.textContent = CONFIG.email; });
 
     const hasCoords = !isNaN(parseFloat(CONFIG.latitude)) && !isNaN(parseFloat(CONFIG.longitude));
     const destination = hasCoords
       ? CONFIG.latitude + "," + CONFIG.longitude
-      : CONFIG.clinicName + " Bima";
+      : CONFIG.address;
     const mapsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(destination);
     $$("[data-directions-link]").forEach((el) => el.setAttribute("href", mapsUrl));
   }

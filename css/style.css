@@ -566,3 +566,4 @@ address { font-style: normal; }
 .form.card, .map-wrap { border-radius: 28px; }
 @media (min-width: 900px) { .package.featured { translate: 0 -12px; } }
 [data-theme="dark"] .therapist img { filter: brightness(0.82); }
+.grid-single { grid-template-columns: minmax(0, 420px); justify-content: center; }
