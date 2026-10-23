@@ -34,8 +34,6 @@ const CONFIG = {
 (function () {
   "use strict";
 
-  const MINUTES_PER_DAY = 1440;
-  const CAROUSEL_INTERVAL_MS = 7000;
   const SCROLL_TOP_THRESHOLD = 600;
   const DAY_NAMES = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -95,7 +93,7 @@ const CONFIG = {
 
   function initOpenStatus() {
     const badges = $$("[data-open-status]");
-    const todayRows = $$(".hours [data-day]");
+    const todayRows = $$(".hours [data-days]"); // baris jam dikelompokkan, mis. data-days="1,2,3,4,5"
     if (!badges.length && !todayRows.length) return;
 
     const update = () => {
@@ -109,7 +107,7 @@ const CONFIG = {
         if (label) label.textContent = text;
       });
       const today = String(getWitaNow(now).day);
-      todayRows.forEach((row) => row.classList.toggle("is-today", row.dataset.day === today));
+      todayRows.forEach((row) => row.classList.toggle("is-today", row.dataset.days.split(",").includes(today)));
     };
     update();
     setInterval(update, 60000);
@@ -118,7 +116,7 @@ const CONFIG = {
   /* ------------------------- Link WhatsApp & kontak ------------------------- */
 
   function initWhatsAppLinks() {
-    const fallback = "Halo {clinic}, saya ingin bertanya tentang layanan terapi.";
+    const fallback = "Halo {clinic}, saya ingin bertanya tentang layanan fisioterapi.";
     $$("[data-wa-message]").forEach((el) => {
       const message = resolveMessage(el.dataset.waMessage || fallback);
       el.setAttribute("href", buildWaUrl(message));
@@ -238,6 +236,7 @@ const CONFIG = {
   }
 
   /* ------------------------- Carousel testimoni ------------------------- */
+  /* Tanpa auto-play: pengunjung menggeser sendiri (swipe) atau memakai tombol panah/titik. */
 
   function initCarousel(root) {
     const track = $("[data-carousel-track]", root);
@@ -245,13 +244,9 @@ const CONFIG = {
     const dotsWrap = $("[data-carousel-dots]", root);
     const prev = $("[data-carousel-prev]", root);
     const next = $("[data-carousel-next]", root);
-    const toggle = $("[data-carousel-toggle]", root);
-    if (!track || slides.length < 2) return;
+    if (!track || !dotsWrap || !prev || !next || slides.length < 2) return;
 
     let index = 0;
-    let timer = null;
-    let userPaused = prefersReducedMotion.matches; // pengguna reduced-motion: tidak auto-play
-    let hoverPaused = false;
 
     const dots = slides.map((_, i) => {
       const dot = document.createElement("button");
@@ -287,32 +282,10 @@ const CONFIG = {
       });
     }, { passive: true });
 
-    const syncAutoplay = () => {
-      const shouldRun = !userPaused && !hoverPaused && !document.hidden;
-      window.clearInterval(timer);
-      timer = shouldRun ? window.setInterval(() => goTo(index + 1), CAROUSEL_INTERVAL_MS) : null;
-      track.setAttribute("aria-live", shouldRun ? "off" : "polite");
-    };
-
-    const renderToggle = () => {
-      toggle.setAttribute("aria-label", userPaused ? "Putar otomatis" : "Jeda putar otomatis");
-      toggle.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#' + (userPaused ? "i-play" : "i-pause") + '"/></svg>';
-    };
-
     prev.addEventListener("click", () => goTo(index - 1));
     next.addEventListener("click", () => goTo(index + 1));
-    toggle.addEventListener("click", () => { userPaused = !userPaused; renderToggle(); syncAutoplay(); });
-    root.addEventListener("mouseenter", () => { hoverPaused = true; syncAutoplay(); });
-    root.addEventListener("mouseleave", () => { hoverPaused = false; syncAutoplay(); });
-    root.addEventListener("focusin", () => { hoverPaused = true; syncAutoplay(); });
-    root.addEventListener("focusout", () => { hoverPaused = false; syncAutoplay(); });
-    track.addEventListener("touchstart", () => { hoverPaused = true; syncAutoplay(); }, { passive: true });
-    track.addEventListener("touchend", () => { hoverPaused = false; syncAutoplay(); }, { passive: true });
-    document.addEventListener("visibilitychange", syncAutoplay);
 
     setActive(0);
-    renderToggle();
-    syncAutoplay();
   }
 
   /* ------------------------- Form booking → WhatsApp ------------------------- */
@@ -349,8 +322,8 @@ const CONFIG = {
     if (!values.service) errors.service = "Silakan pilih layanan.";
     if (!values.date) errors.date = "Silakan pilih tanggal.";
     else if (values.date < getWitaNow().isoDate) errors.date = "Tanggal tidak boleh sebelum hari ini.";
-    if (!values.time) errors.time = "Silakan pilih waktu.";
-    if (!values.mode) errors.mode = "Silakan pilih sesi offline atau online.";
+    if (!values.time) errors.time = "Silakan pilih waktu: pagi, siang, atau sore.";
+    if (!values.mode) errors.mode = "Silakan pilih datang ke klinik atau online.";
     if (!values.consent) errors.consent = "Mohon centang persetujuan untuk melanjutkan.";
     return errors;
   }
@@ -362,9 +335,8 @@ const CONFIG = {
       "*Nama:* " + values.name,
       "*No. WhatsApp:* " + values.wa,
       "*Layanan:* " + values.service,
-      "*Fisioterapis:* " + values.therapist,
-      "*Jadwal pilihan:* " + formatDateId(values.date) + ", pukul " + formatTime(values.time) + " WITA",
-      "*Jenis sesi:* " + values.mode,
+      "*Jadwal pilihan:* " + formatDateId(values.date) + ", " + values.time.toLowerCase(),
+      "*Cara konsultasi:* " + values.mode,
     ];
     if (values.note) lines.push("*Keluhan singkat:* " + values.note);
     lines.push("", "Mohon konfirmasi ketersediaan jadwalnya. Terima kasih.");
@@ -385,7 +357,6 @@ const CONFIG = {
         name: text("name"),
         wa: text("wa"),
         service: text("service"),
-        therapist: text("therapist") || "Siapa saja yang tersedia",
         date: text("date"),
         time: text("time"),
         mode: text("mode"),
@@ -394,7 +365,8 @@ const CONFIG = {
       };
     };
 
-    const fieldIds = { name: "f-name", wa: "f-wa", service: "f-service", date: "f-date", time: "f-time", consent: "f-consent" };
+    // Kolom teks/select punya id; pilihan radio (time, mode) difokuskan lewat atribut name
+    const fieldIds = { name: "f-name", wa: "f-wa", service: "f-service", date: "f-date", consent: "f-consent" };
 
     const showErrors = (errors) => {
       ["name", "wa", "service", "date", "time", "mode", "consent"].forEach((key) => {
@@ -417,7 +389,9 @@ const CONFIG = {
       const firstKey = Object.keys(errors)[0];
       if (firstKey) {
         status.textContent = "Mohon periksa kembali isian yang ditandai.";
-        const target = fieldIds[firstKey] ? document.getElementById(fieldIds[firstKey]) : $('input[name="mode"]', form);
+        const target = fieldIds[firstKey]
+          ? document.getElementById(fieldIds[firstKey])
+          : $('input[name="' + firstKey + '"]', form);
         if (target) target.focus();
         return;
       }

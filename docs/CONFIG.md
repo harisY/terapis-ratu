@@ -36,7 +36,7 @@ Jam operasional juga tertulis di dua tempat lain dan harus sama: tabel jam di se
 <!-- AUTO-GENERATED: PLACEHOLDER -->
 ## Placeholder yang belum diganti
 
-Total 23 jenis placeholder (komentar HTML tidak dihitung).
+Total 22 jenis placeholder (komentar HTML tidak dihitung).
 
 | Placeholder | Jumlah | File |
 |-------------|--------|------|
@@ -45,18 +45,17 @@ Total 23 jenis placeholder (komentar HTML tidak dihitung).
 | `[HARGA]` | 3 | index.html |
 | `[LAYANAN YANG DIIKUTI]` | 3 | index.html |
 | `[SESUAIKAN kebijakan klinik terkait rujukan dan jaminan kesehatan]` | 2 | index.html |
-| `[KEBIJAKAN PEMBATALAN, mis. pemberitahuan minimal 24 jam sebelum sesi]` | 2 | index.html |
 | `[PLATFORM, mis. Google Meet atau WhatsApp Video]` | 2 | index.html |
-| `[SEBUTKAN METODE, mis. terapi manual, latihan penguatan, elektroterapi]` | 1 | index.html |
+| `[KEBIJAKAN PEMBATALAN, mis. pemberitahuan minimal 24 jam sebelum sesi]` | 2 | index.html |
 | `[AREA KUNJUNGAN, mis. Kota Bima dan sekitarnya]` | 1 | index.html |
+| `[INFO PARKIR, mis. tersedia parkir motor dan mobil di halaman klinik]` | 1 | index.html |
+| `[INFO AKSES, mis. ruang terapi di lantai dasar, ramah kursi roda dan lansia]` | 1 | index.html |
 | `[GELAR]` | 1 | index.html |
 | `[SPESIALISASI, mis. Fisioterapi Muskuloskeletal]` | 1 | index.html |
 | `[NOMOR IZIN PRAKTIK]` | 1 | index.html |
 | `[ISI TESTIMONI ASLI 1. Tulis dengan kata-kata pasien, tanpa janji hasil.]` | 1 | index.html |
 | `[ISI TESTIMONI ASLI 2. Tulis dengan kata-kata pasien, tanpa janji hasil.]` | 1 | index.html |
 | `[ISI TESTIMONI ASLI 3. Tulis dengan kata-kata pasien, tanpa janji hasil.]` | 1 | index.html |
-| `[INFO PARKIR, mis. tersedia parkir motor dan mobil di halaman klinik]` | 1 | index.html |
-| `[INFO AKSES, mis. ruang terapi di lantai dasar, ramah kursi roda dan lansia]` | 1 | index.html |
 | `[PLACEHOLDER]` | 1 | privacy.html |
 | `[SESUAIKAN dengan penyedia hosting yang dipakai]` | 1 | privacy.html |
 | `[JANGKA WAKTU PENYIMPANAN]` | 1 | privacy.html |

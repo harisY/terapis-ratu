@@ -54,10 +54,15 @@ node -e "const h=require('fs').readFileSync('index.html','utf8');[...h.matchAll(
   Nama, alamat, dan telepon juga tertulis di HTML dan JSON-LD, dan harus sama persis.
 - **Jam operasional** ada di tiga tempat dan harus sama: `CONFIG.hours`, tabel jam di section
   Lokasi, dan `openingHoursSpecification` di JSON-LD.
-- **FAQ** ada di dua tempat dan harus identik: `<details>` di HTML dan `FAQPage` di JSON-LD.
+- **FAQ** ada di dua tempat dan harus identik: `<details class="faq-item">` di HTML dan `FAQPage` di JSON-LD.
+  Lima pertanyaan pertama tampil langsung; sisanya ada di dalam "Lihat pertanyaan lainnya".
 - **Tombol WhatsApp** memakai atribut `data-wa-message`. Token `{clinic}` diganti dengan
   `CONFIG.clinicName`. Jangan menulis link `wa.me` langsung di HTML.
 - **Dropdown layanan** di form diisi otomatis dari atribut `data-service-name` pada kartu layanan.
+- **Jam buka** di section Lokasi dikelompokkan dengan atribut `data-days` (mis. `data-days="1,2,3,4,5"`);
+  baris hari ini disorot otomatis.
+- **Bahasa awam:** hindari istilah medis tanpa penjelasan (tulis "setelah operasi", bukan "pasca operasi").
+  Teks yang perlu dibaca minimal ±15px (`.95rem`).
 - **Breakpoint menu** desktop adalah 1181px, harus sama di `css/style.css` dan `js/main.js`.
 - Jangan menambah `console.*` di kode produksi.
 - Jangan mengarang testimoni, nama, gelar, nomor izin, atau klaim hasil terapi.
@@ -68,9 +73,10 @@ Tidak ada test otomatis. Jalankan checklist ini sebelum commit yang mengubah tam
 
 1. Konsol browser bersih (tidak ada error merah) di `index.html` dan `privacy.html`.
 2. Semua tombol WhatsApp membuka `wa.me/6281238986489` dengan pesan yang sesuai.
-3. Form booking: kirim kosong menampilkan error dan memindahkan fokus; kirim valid membuka WhatsApp.
+3. Form booking: kirim kosong menampilkan error dan memindahkan fokus; kirim valid membuka WhatsApp
+   dengan jadwal "tanggal, pagi/siang/sore".
 4. Navigasi keyboard: skip link, menu mobile (Esc menutup), FAQ, carousel, fokus selalu terlihat.
-5. Aktifkan `prefers-reduced-motion`: pulse, fade-in, dan auto-play carousel berhenti.
+5. Aktifkan `prefers-reduced-motion`: pulse dan fade-in tidak berjalan. (Carousel tidak memakai auto-play.)
 6. Lebar 320, 390, 768, 1024, 1280, dan 1440px tanpa scroll horizontal. Coba juga dengan nama klinik panjang.
 7. Lighthouse (Performance, Accessibility, Best Practices, SEO) di mobile.
 

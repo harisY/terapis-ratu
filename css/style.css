@@ -149,7 +149,7 @@ a:hover { color: var(--primary-hover); }
 .card p:last-child { margin-bottom: 0; }
 
 .placeholder-note {
-  display: inline-block; font-size: .875rem; color: var(--muted);
+  display: inline-block; font-size: .95rem; color: var(--muted);
   border: 1px dashed var(--field-border); border-radius: var(--radius-sm); padding: .25rem .6rem;
 }
 
@@ -252,10 +252,8 @@ a:hover { color: var(--primary-hover); }
 .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 40ch; }
 .cta-row { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.6rem 0 1.4rem; }
 @media (max-width: 600px) { .cta-row .btn { flex: 1 1 100%; } }
-.hero-points { list-style: none; display: grid; gap: .5rem; margin-bottom: 1.2rem; }
-.hero-points li { display: flex; gap: .6rem; align-items: flex-start; color: var(--text); }
-.hero-points .icon { color: var(--primary); margin-top: .2em; }
 .hero-art { width: 100%; max-width: 520px; margin-inline: auto; }
+@media (max-width: 899px) { .hero-art { display: none; } }
 
 .open-status {
   display: inline-flex; align-items: center; gap: .55rem;
@@ -273,24 +271,19 @@ a:hover { color: var(--primary-hover); }
 /* ---------- 7. TENTANG, LAYANAN, TIM, ALUR, PAKET ---------- */
 .about-grid { display: grid; gap: 2rem; }
 @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
-.vision {
-  font-family: var(--font-head); font-size: 1.3rem; line-height: 1.5;
-  border-left: 4px solid var(--primary); padding-left: 1.2rem; margin: 1.5rem 0;
-}
-.values { list-style: none; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin-top: 1.5rem; }
-.values li { display: flex; gap: .8rem; align-items: flex-start; }
-.values strong { display: block; }
-.values span { color: var(--muted); font-size: .95rem; }
+.reasons { list-style: none; display: grid; gap: 1.1rem; margin-top: 1.5rem; }
+.reasons li { display: flex; gap: .9rem; align-items: flex-start; }
+.reasons strong { display: block; font-size: 1.05rem; }
+.reasons span { color: var(--muted); }
 
 .icon-badge {
   display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
   background: var(--primary-soft); color: var(--primary); flex: none; margin-bottom: 1rem;
 }
-.values .icon-badge { margin-bottom: 0; width: 42px; height: 42px; }
-.approach .card { background: var(--surface); }
+.reasons .icon-badge { margin-bottom: 0; width: 44px; height: 44px; }
 
 .service { display: flex; flex-direction: column; }
-.service-meta { margin: .8rem 0 1.2rem; display: grid; gap: .7rem; font-size: .95rem; color: var(--muted); }
+.service-meta { margin: .6rem 0 0; display: grid; gap: .7rem; font-size: 1rem; color: var(--muted); }
 .service-meta dt { font-weight: 700; color: var(--text); }
 .service-meta dd { margin: 0; }
 .service .btn { margin-top: auto; }
@@ -298,7 +291,7 @@ a:hover { color: var(--primary-hover); }
 .therapist { text-align: center; display: flex; flex-direction: column; }
 .therapist img { width: 100%; max-width: 220px; aspect-ratio: 1; object-fit: cover; border-radius: 50%; margin: 0 auto 1.1rem; border: 4px solid var(--primary-soft); }
 .therapist .role { color: var(--primary); font-weight: 700; margin-bottom: .3rem; }
-.therapist .license { font-size: .875rem; color: var(--muted); }
+.therapist .license { font-size: .95rem; color: var(--muted); }
 .therapist .btn { margin-top: auto; }
 
 /* Stepper alur konsultasi: vertikal di ponsel, horizontal di desktop */
@@ -324,7 +317,7 @@ a:hover { color: var(--primary-hover); }
 .package.featured { border: 2px solid var(--primary); box-shadow: var(--shadow); }
 .package .badge { position: absolute; top: -.8rem; left: 1.4rem; }
 .price { font-family: var(--font-head); font-size: 1.9rem; font-weight: 700; margin: .4rem 0 1rem; }
-.price small { font-family: var(--font-body); font-size: .875rem; font-weight: 400; color: var(--muted); }
+.price small { font-family: var(--font-body); font-size: .95rem; font-weight: 400; color: var(--muted); }
 .checklist { list-style: none; display: grid; gap: .55rem; margin-bottom: 1.5rem; }
 .checklist li { display: flex; gap: .6rem; align-items: flex-start; }
 .checklist .icon { color: var(--primary); margin-top: .2em; }
@@ -382,7 +375,7 @@ a:hover { color: var(--primary-hover); }
 .form { display: grid; gap: 1.1rem; }
 .field { display: grid; gap: .35rem; }
 .field label, .field legend { font-weight: 700; font-size: .95rem; }
-.field .hint { font-size: .875rem; color: var(--muted); }
+.field .hint { font-size: .95rem; color: var(--muted); }
 .req { color: var(--danger); }
 fieldset.field { border: 0; padding: 0; margin: 0; min-width: 0; }
 .field-row { display: grid; gap: 1rem; }
@@ -396,7 +389,7 @@ input[type="text"], input[type="tel"], input[type="date"], input[type="time"], s
 textarea { min-height: 110px; resize: vertical; }
 input:focus-visible, select:focus-visible, textarea:focus-visible { outline-offset: 1px; }
 [aria-invalid="true"] { border-color: var(--danger); border-width: 2px; }
-.field-error { margin: 0; font-size: .875rem; font-weight: 600; color: var(--danger); }
+.field-error { margin: 0; font-size: .95rem; font-weight: 600; color: var(--danger); }
 .field-error:empty { display: none; }
 
 .choice-group { display: flex; flex-wrap: wrap; gap: .6rem; }
@@ -419,7 +412,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline-offs
 @media (min-width: 900px) { .location-grid { grid-template-columns: 1.1fr .9fr; gap: 3rem; } }
 .map-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface-2); box-shadow: var(--shadow-sm); }
 .map-wrap iframe { display: block; width: 100%; aspect-ratio: 4 / 3; min-height: 320px; border: 0; }
-.map-caption { margin: 0; padding: .8rem 1.1rem; font-size: .875rem; color: var(--muted); }
+.map-caption { margin: 0; padding: .8rem 1.1rem; font-size: .95rem; color: var(--muted); }
 
 address { font-style: normal; }
 .info-list { list-style: none; display: grid; gap: 1rem; margin-bottom: 1.5rem; }
@@ -445,7 +438,7 @@ address { font-style: normal; }
 .footer-links .icon { vertical-align: -0.2em; margin-right: .4rem; }
 .socials { display: flex; gap: .6rem; margin-top: .8rem; }
 .socials a { display: grid; place-items: center; width: 44px; height: 44px; border: 1.5px solid var(--footer-line); border-radius: 50%; }
-.footer-bottom { border-top: 1px solid var(--footer-line); margin-top: 2.5rem; padding-top: 1.5rem; font-size: .875rem; color: var(--footer-muted); }
+.footer-bottom { border-top: 1px solid var(--footer-line); margin-top: 2.5rem; padding-top: 1.5rem; font-size: .95rem; color: var(--footer-muted); }
 .footer-bottom p { margin-bottom: .6rem; }
 .site-footer .brand { color: var(--footer-text); margin-bottom: .8rem; }
 .site-footer .brand-mark { color: var(--footer-link); }
@@ -482,12 +475,12 @@ address { font-style: normal; }
 @media (prefers-reduced-motion: no-preference) {
   .fab-wa::after {
     content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wa);
-    animation: wa-pulse 2.6s ease-out infinite;
+    animation: wa-pulse 2.6s ease-out 1s 3 both;
   }
   @keyframes wa-pulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.5); opacity: 0; } }
 
   /* Fade-in saat scroll (hanya aktif bila JS berjalan) */
-  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .45s cubic-bezier(.16, 1, .3, 1), transform .45s cubic-bezier(.16, 1, .3, 1); }
+  .js .reveal { opacity: 0; transform: translateY(10px); transition: opacity .3s ease-out, transform .3s ease-out; }
   .js .reveal.is-visible { opacity: 1; transform: none; }
 }
 
@@ -509,3 +502,68 @@ address { font-style: normal; }
 .form.card, .map-wrap { border-radius: 28px; }
 @media (min-width: 900px) { .package.featured { translate: 0 -12px; } }
 .grid-single { grid-template-columns: minmax(0, 420px); justify-content: center; }
+
+/* ---------- 12. UX UNTUK PENGUNJUNG AWAM ---------- */
+
+/* Info cepat di bawah hero: lokasi, jam buka, WhatsApp, telepon */
+/* HP: daftar 1 kolom (teks tidak terpotong); tablet: 2 kolom; desktop: 4 kolom */
+.quick-info { list-style: none; display: grid; gap: .6rem; grid-template-columns: 1fr; margin-top: 1.6rem; }
+@media (min-width: 600px) { .quick-info { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .quick-info { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 2.2rem; } }
+.qi {
+  display: flex; gap: .7rem; align-items: flex-start; height: 100%; min-height: 60px;
+  padding: .85rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  color: var(--text); text-decoration: none; box-shadow: var(--shadow-sm);
+  transition: border-color .2s, transform .2s;
+}
+.qi:hover { color: var(--text); border-color: var(--primary); transform: translateY(-1px); }
+.qi > .icon { color: var(--primary); width: 1.4em; height: 1.4em; margin-top: .1em; }
+.qi strong { display: block; font-size: .95rem; }
+.qi > span { font-size: .95rem; color: var(--muted); line-height: 1.4; min-width: 0; }
+.qi [data-config-text="phone"] { white-space: nowrap; }
+.qi-status { display: inline-flex; gap: .4rem; align-items: baseline; }
+.qi-status .status-dot { width: 9px; height: 9px; flex: none; transform: translateY(-1px); }
+.qi.is-open .status-dot { background: var(--ok); }
+.qi.is-closed .status-dot { background: var(--closed); }
+
+/* Tombol telepon cepat di header (hanya saat menu hamburger dipakai) */
+.header-call { display: none; color: var(--primary); }
+@media (max-width: 1180px) { .header-call { display: inline-grid; } }
+
+/* Kartu layanan ringkas: detail bisa dibuka */
+.service-top { display: flex; gap: .8rem; align-items: center; margin-bottom: .6rem; }
+.service-top .icon-badge { margin: 0; }
+.service-top h3 { margin: 0; }
+.service > p { margin-bottom: .6rem; }
+.svc-more { margin-bottom: 1rem; }
+.svc-more summary {
+  display: inline-flex; align-items: center; gap: .3rem; min-height: 44px;
+  color: var(--primary); font-weight: 700; cursor: pointer; list-style: none;
+}
+.svc-more summary::-webkit-details-marker { display: none; }
+.svc-more summary .icon { transition: transform .2s; }
+.svc-more[open] summary .icon { transform: rotate(180deg); }
+.directions-toggle { margin: .5rem 0 0; }
+@media (max-width: 599px) { .card { padding: 1.25rem; } }
+
+/* Paket: untuk siapa */
+.package-fit { color: var(--muted); margin-bottom: .2rem; }
+.package-fit strong { color: var(--text); }
+
+/* Form & catatan kecil */
+.form-privacy { color: var(--muted); }
+.form-note { margin: 0; color: var(--muted); font-size: .95rem; text-align: center; }
+
+/* FAQ: sebagian pertanyaan disembunyikan di balik "Lihat pertanyaan lainnya" */
+.faq-more { display: grid; gap: .8rem; }
+.faq-more > .faq-list { margin-top: .8rem; }
+.faq-more-toggle {
+  display: inline-flex; align-items: center; gap: .4rem; min-height: 48px; padding: .5rem 1.2rem;
+  border: 2px solid var(--primary); border-radius: 999px; color: var(--primary); font-weight: 700;
+  cursor: pointer; list-style: none; width: fit-content;
+}
+.faq-more-toggle::-webkit-details-marker { display: none; }
+.faq-more[open] > .faq-more-toggle { display: none; }
+
+/* Tentang: teks + kartu fisioterapis berdampingan di layar lebar */
+#tentang .therapist { align-self: start; }
