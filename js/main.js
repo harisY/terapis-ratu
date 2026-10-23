@@ -227,6 +227,14 @@ const CONFIG = {
     const update = () => button.classList.toggle("is-visible", window.scrollY > SCROLL_TOP_THRESHOLD);
     update();
     window.addEventListener("scroll", update, { passive: true });
+
+    // Gulir ke paling atas halaman, lalu pindahkan fokus agar pengguna keyboard tidak "kehilangan" posisi
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
+      const brand = $(".brand");
+      if (brand) brand.focus({ preventScroll: true });
+    });
   }
 
   /* ------------------------- Carousel testimoni ------------------------- */
