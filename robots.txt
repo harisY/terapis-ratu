@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# GANTI [DOMAIN] dengan domain asli
+Sitemap: https://[DOMAIN]/sitemap.xml

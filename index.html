@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Cegah kedipan warna: pasang data-theme sebelum CSS dirender -->
+  <script>
+    (function () {
+      var root = document.documentElement, theme = null;
+      root.classList.add('js');
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- ===== SEO ON-PAGE =====
+       GANTI: [NAMA KLINIK], [DOMAIN]. -->
+  <title>Klinik Fisioterapi di Bima, NTB | [NAMA KLINIK]</title>
+  <meta name="description" content="Klinik fisioterapi di Bima, NTB untuk nyeri punggung, leher, sendi, cedera olahraga, pasca stroke, dan anak. Konsultasi dan jadwalkan sesi via WhatsApp.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://[DOMAIN]/">
+  <meta name="geo.region" content="ID-NB">
+  <meta name="geo.placename" content="Bima">
+
+  <!-- Warna address bar browser (terang / gelap) -->
+  <meta name="theme-color" content="#f6f5f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111714" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Open Graph & Twitter Card. GANTI: [DOMAIN], [NAMA KLINIK]. Gambar 1200x630. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="[NAMA KLINIK]">
+  <meta property="og:title" content="Klinik Fisioterapi di Bima, NTB | [NAMA KLINIK]">
+  <meta property="og:description" content="Fisioterapi di Bima, NTB untuk nyeri, cedera, dan pemulihan gerak. Konsultasi via WhatsApp.">
+  <meta property="og:url" content="https://[DOMAIN]/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/og-image-fisioterapi-bima.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="[NAMA KLINIK], klinik fisioterapi di Bima, NTB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Klinik Fisioterapi di Bima, NTB | [NAMA KLINIK]">
+  <meta name="twitter:description" content="Fisioterapi di Bima, NTB. Konsultasi via WhatsApp.">
+  <meta name="twitter:image" content="https://[DOMAIN]/assets/og-image-fisioterapi-bima.png">
+
+  <!-- Ikon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Font: maks. 2 keluarga (Lora + Nunito Sans), dimuat tanpa memblokir render -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+
+  <!-- ===== STRUCTURED DATA (JSON-LD) =====
+       Nilai dalam [KURUNG SIKU] adalah placeholder: ganti sebelum publish.
+       NAP (nama, alamat, telepon) harus SAMA PERSIS dengan footer & section Lokasi. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": "https://[DOMAIN]/#klinik",
+    "name": "[NAMA KLINIK]",
+    "description": "Klinik fisioterapi di Bima, Nusa Tenggara Barat untuk nyeri otot dan sendi, cedera, rehabilitasi pasca stroke, serta fisioterapi anak dan lansia.",
+    "medicalSpecialty": "https://schema.org/Physiotherapy",
+    "url": "https://[DOMAIN]/",
+    "telephone": "[NOMOR TELEPON]",
+    "email": "[EMAIL]",
+    "image": "https://[DOMAIN]/assets/og-image-fisioterapi-bima.png",
+    "logo": "https://[DOMAIN]/assets/logo.svg",
+    "priceRange": "[RENTANG HARGA, mis. Rp150.000 - Rp500.000]",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[JALAN, NOMOR], Kel. [KELURAHAN], Kec. [KECAMATAN]",
+      "addressLocality": "Bima",
+      "addressRegion": "Nusa Tenggara Barat",
+      "postalCode": "[KODE POS]",
+      "addressCountry": "ID"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "[LATITUDE]",
+      "longitude": "[LONGITUDE]"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "16:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Kota Bima" },
+      { "@type": "AdministrativeArea", "name": "Kabupaten Bima" },
+      { "@type": "AdministrativeArea", "name": "Kabupaten Dompu" }
+    ],
+    "sameAs": [
+      "[URL INSTAGRAM]",
+      "[URL FACEBOOK]",
+      "[URL TIKTOK]",
+      "[URL GOOGLE BUSINESS PROFILE]"
+    ],
+    "hasMap": "[URL GOOGLE BUSINESS PROFILE]"
+  }
+  </script>
+
+  <!-- FAQPage: isi HARUS sama dengan FAQ yang tampil di halaman -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Berapa biaya fisioterapi di [NAMA KLINIK]?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Biaya bergantung pada jenis layanan dan paket yang dipilih. Anda dapat melihat gambaran harga di bagian Paket dan Harga, atau menanyakannya langsung via WhatsApp. Harga dapat berubah sewaktu-waktu, sehingga kami akan mengonfirmasi biaya sebelum sesi dimulai." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya perlu surat rujukan dokter untuk berobat?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tidak selalu. Anda bisa datang untuk penilaian awal oleh fisioterapis. Untuk kondisi tertentu, misalnya setelah operasi atau bila ditemukan tanda yang perlu diperiksa dokter, kami akan menyarankan pemeriksaan atau rujukan lebih lanjut. [SESUAIKAN kebijakan klinik terkait rujukan dan jaminan kesehatan]" }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama satu sesi berlangsung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Durasi sesi berbeda untuk tiap layanan, umumnya antara 30 sampai 60 menit. Durasi tepatnya tertera pada kartu layanan dan akan dikonfirmasi saat Anda menjadwalkan sesi." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah terapinya terasa sakit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sebagian teknik mungkin terasa kurang nyaman, terutama pada area yang sedang nyeri atau kaku. Fisioterapis akan menyesuaikan intensitasnya, dan Anda boleh menyampaikan kapan saja bila terasa terlalu sakit." }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana jika saya perlu membatalkan atau mengganti jadwal?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Mohon kabari kami melalui WhatsApp sesegera mungkin agar jadwal bisa diatur ulang. Ketentuan pembatalan: [KEBIJAKAN PEMBATALAN, mis. pemberitahuan minimal 24 jam sebelum sesi]." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah sesi bisa dilakukan online, atau harus datang langsung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Penilaian awal dan terapi manual paling baik dilakukan secara langsung di klinik kami di Bima. Konsultasi online tersedia untuk diskusi keluhan, panduan latihan di rumah, dan tindak lanjut melalui [PLATFORM, mis. Google Meet atau WhatsApp Video]." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apa yang perlu saya siapkan untuk sesi pertama?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Kenakan pakaian longgar yang nyaman. Bawa hasil pemeriksaan yang pernah Anda miliki, seperti rontgen, MRI, atau surat dari dokter, serta daftar obat yang sedang dikonsumsi. Tidak apa-apa bila Anda belum memilikinya; fisioterapis tetap akan memulai dengan penilaian." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah melayani pasien dari Kabupaten Bima dan Dompu?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ya, kami menerima pasien dari Kota Bima, Kabupaten Bima, dan Dompu. Hubungi kami via WhatsApp untuk mengatur jadwal yang sesuai dengan perjalanan Anda." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia sesi online untuk pasien di luar Kota Bima?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tersedia untuk konsultasi dan panduan latihan. Pasien di luar Kota Bima, termasuk dari Kabupaten Bima, Dompu, atau daerah lain di NTB, dapat mengikuti sesi online selama memiliki koneksi internet yang cukup stabil. Bila diperlukan terapi langsung, kami akan mengatur jadwal kunjungan ke klinik." }
+      },
+      {
+        "@type": "Question",
+        "name": "Keluhan apa saja yang bisa ditangani fisioterapi?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Misalnya nyeri punggung, leher, dan bahu, nyeri sendi, cedera olahraga, pemulihan setelah operasi atau patah tulang, kelemahan setelah stroke, gangguan keseimbangan pada lansia, hingga keterlambatan perkembangan motorik anak. Jika Anda ragu apakah keluhan Anda sesuai, silakan tanyakan lebih dulu via WhatsApp." }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa kali saya perlu datang?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Setiap orang berbeda. Jumlah pertemuan bergantung pada kondisi dan tujuan Anda, dan akan dijelaskan fisioterapis setelah penilaian awal. Kami tidak menjanjikan hasil tertentu, tetapi kami akan menyusun program yang sesuai dan mengevaluasinya secara berkala." }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini bisa dipakai untuk kondisi darurat?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tidak. Layanan kami bukan layanan darurat. Jika Anda mengalami nyeri dada, sesak napas, kelemahan atau mati rasa mendadak, atau cedera berat, segera hubungi [NOMOR DARURAT/IGD] atau datang ke IGD rumah sakit terdekat." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://[DOMAIN]/" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten</a>
+
+  <!-- Sprite ikon SVG inline (dipakai ulang lewat <use>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3l14 9-14 9z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+      <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ 1. HEADER / NAVBAR ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="[NAMA KLINIK] - ke atas halaman">
+        <!-- GANTI logo: ubah SVG ini atau pakai <img src="assets/logo.svg"> -->
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 31c-6-3-9-7.5-9-12 5 0 8 1.8 9 5 1-3.2 4-5 9-5 0 4.5-3 9-9 12z" fill="currentColor"/>
+        </svg>
+        <span>[NAMA KLINIK]</span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#terapis">Fisioterapis</a></li>
+          <li><a href="#paket">Paket</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#lokasi">Lokasi</a></li>
+        </ul>
+        <a class="btn btn-wa btn-sm nav-cta" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan fisioterapi.">
+          <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Chat WhatsApp
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Beralih ke mode gelap">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten">
+
+    <!-- ============ 2. HERO ============ -->
+    <section class="hero" id="beranda" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Klinik Fisioterapi di Bima, NTB</p>
+          <h1 id="hero-title">Fisioterapi di Bima untuk Nyeri, Cedera, dan Pemulihan Gerak</h1>
+          <p class="lead">Nyeri yang mengganggu aktivitas, atau badan terasa kaku setelah cedera? Fisioterapis kami membantu Anda bergerak lebih nyaman lewat penilaian yang teliti dan latihan yang disesuaikan dengan kondisi Anda. Melayani Kota Bima, Kabupaten Bima, dan Dompu.</p>
+          <div class="cta-row">
+            <a class="btn btn-wa" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan fisioterapi.">
+              <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Konsultasi via WhatsApp
+            </a>
+            <a class="btn btn-outline" href="#layanan">Lihat Layanan</a>
+          </div>
+          <ul class="hero-points">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Dimulai dengan penilaian kondisi Anda</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Program terapi dan latihan yang personal</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Penjelasan yang mudah dipahami</li>
+          </ul>
+          <p class="open-status" data-open-status><span class="status-dot" aria-hidden="true"></span><span data-open-text>Cek jam operasional di bagian Lokasi</span></p>
+        </div>
+
+        <!-- Ilustrasi inline (warna mengikuti tema). GANTI dengan foto ruang terapi asli,
+             mis. assets/ruang-fisioterapi-nama-klinik-bima.webp (WebP, width/height eksplisit, fetchpriority="high"). -->
+        <svg class="hero-art illus" viewBox="0 0 480 400" role="img" aria-label="Ilustrasi ruang fisioterapi di Bima dengan bed terapi, bola latihan, tanaman, dan jendela lengkung">
+          <circle cx="240" cy="200" r="185" fill="var(--bg-alt)"/>
+          <path d="M150 310V165a90 90 0 0 1 180 0v145z" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+          <path d="M240 75v235M150 190h180" stroke="var(--line)" stroke-width="3"/>
+          <circle cx="285" cy="130" r="22" fill="var(--accent-soft)"/>
+          <rect x="60" y="310" width="360" height="12" rx="6" fill="var(--primary-soft)"/>
+          <!-- tanaman -->
+          <g transform="translate(-14 0)">
+            <rect x="78" y="262" width="46" height="48" rx="8" fill="var(--accent)"/>
+            <ellipse cx="88" cy="238" rx="14" ry="30" transform="rotate(-25 88 238)" fill="var(--primary)"/>
+            <ellipse cx="102" cy="228" rx="13" ry="34" fill="var(--primary)"/>
+            <ellipse cx="117" cy="240" rx="14" ry="30" transform="rotate(25 117 240)" fill="var(--primary)"/>
+          </g>
+          <!-- bed terapi -->
+          <rect x="150" y="252" width="190" height="34" rx="12" fill="var(--primary)"/>
+          <rect x="162" y="232" width="56" height="22" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+          <rect x="170" y="286" width="150" height="14" rx="4" fill="var(--text)"/>
+          <path d="M184 300v10M306 300v10" stroke="var(--text)" stroke-width="6" stroke-linecap="round"/>
+          <!-- bola latihan -->
+          <circle cx="392" cy="274" r="36" fill="var(--accent)"/>
+          <path d="M366 262c14 8 40 8 52 0" fill="none" stroke="var(--on-primary)" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+          <!-- penanda gerak & pemulihan -->
+          <rect x="112" y="104" width="86" height="42" rx="18" fill="var(--primary)"/>
+          <path d="M138 126l9 9 19-20" fill="none" stroke="var(--on-primary)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="324" y="146" width="96" height="46" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+          <path d="M336 170h16l8-14 10 28 8-14h24" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ 3. TENTANG KLINIK ============ -->
+    <section class="section" id="tentang" aria-labelledby="tentang-title">
+      <div class="container about-grid">
+        <div class="reveal">
+          <p class="eyebrow">Tentang Klinik</p>
+          <h2 id="tentang-title">Gerak yang lebih nyaman, dengan langkah yang bisa Anda pahami</h2>
+          <p>[NAMA KLINIK] adalah klinik fisioterapi di Bima, Nusa Tenggara Barat. Kami melayani warga Kota Bima, Kabupaten Bima, dan Dompu yang mengalami nyeri otot dan sendi, cedera, kelemahan setelah sakit, maupun kendala tumbuh kembang gerak pada anak.</p>
+          <!-- SESUAIKAN: ganti visi dengan visi klinik yang sebenarnya -->
+          <blockquote class="vision">Menjadi tempat yang tepercaya dan mudah dijangkau bagi warga Bima dan sekitarnya untuk memulihkan serta menjaga kemampuan bergerak.</blockquote>
+          <ul class="values">
+            <li><span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><div><strong>Keselamatan</strong><span>Teknik dipilih dengan hati-hati sesuai kondisi Anda.</span></div></li>
+            <li><span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span><div><strong>Profesional</strong><span>Ditangani fisioterapis dengan latar belakang yang relevan.</span></div></li>
+            <li><span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></span><div><strong>Komunikasi jelas</strong><span>Anda tahu apa yang dikerjakan dan alasannya.</span></div></li>
+            <li><span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><div><strong>Empati</strong><span>Dengan sabar mendampingi proses pemulihan.</span></div></li>
+          </ul>
+        </div>
+        <div class="approach reveal">
+          <h3>Pendekatan kami</h3>
+          <div class="grid" style="margin-top:1rem">
+            <div class="card"><h4>1. Menilai dulu</h4><p>Sesi pertama diawali dengan wawancara keluhan dan pemeriksaan gerak, agar terapi tepat sasaran.</p></div>
+            <div class="card"><h4>2. Program yang personal</h4><p>Terapi dan latihan disusun sesuai kondisi serta tujuan Anda: [SEBUTKAN METODE, mis. terapi manual, latihan penguatan, elektroterapi].</p></div>
+            <div class="card"><h4>3. Evaluasi berkala</h4><p>Perkembangan dinilai secara berkala, dan Anda mendapat latihan sederhana untuk dilakukan di rumah.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. LAYANAN ============ -->
+    <!-- SESUAIKAN: nama layanan, deskripsi, durasi, dan "cocok untuk". data-service-name juga mengisi dropdown di form booking. -->
+    <section class="section section-alt" id="layanan" aria-labelledby="layanan-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Layanan</p>
+          <h2 id="layanan-title">Layanan fisioterapi di Bima</h2>
+          <p>Pilih layanan yang paling mendekati keluhan Anda. Kalau masih ragu, tanyakan saja lewat WhatsApp, kami bantu arahkan.</p>
+        </div>
+        <div class="grid grid-auto">
+          <article class="card service reveal" data-service-name="Nyeri Punggung, Leher, dan Bahu">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>
+            <h3>Nyeri Punggung, Leher, dan Bahu</h3>
+            <p>Penanganan nyeri dan kekakuan otot atau sendi, termasuk yang dipicu duduk lama atau mengangkat beban.</p>
+            <dl class="service-meta">
+              <div><dt>Durasi:</dt><dd>sekitar 45-60 menit</dd></div>
+              <div><dt>Cocok untuk:</dt><dd>Pekerja kantoran, pengemudi, petani, dan siapa pun dengan nyeri punggung atau leher di Bima</dd></div>
+            </dl>
+            <a class="btn btn-wa btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan Nyeri Punggung, Leher, dan Bahu."><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Tanya via WhatsApp</a>
+          </article>
+
+          <article class="card service reveal" data-service-name="Cedera Olahraga dan Pasca Operasi">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg></span>
+            <h3>Cedera Olahraga dan Pasca Operasi</h3>
+            <p>Pemulihan gerak dan kekuatan setelah keseleo, cedera sendi atau otot, patah tulang, atau operasi ortopedi.</p>
+            <dl class="service-meta">
+              <div><dt>Durasi:</dt><dd>sekitar 45-60 menit</dd></div>
+              <div><dt>Cocok untuk:</dt><dd>Atlet, pelajar, dan pasien yang dianjurkan dokter menjalani rehabilitasi</dd></div>
+            </dl>
+            <a class="btn btn-wa btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan Cedera Olahraga dan Pasca Operasi."><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Tanya via WhatsApp</a>
+          </article>
+
+          <article class="card service reveal" data-service-name="Rehabilitasi Pasca Stroke">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
+            <h3>Rehabilitasi Pasca Stroke</h3>
+            <p>Latihan untuk membantu melatih kembali gerak, keseimbangan, dan aktivitas sehari-hari setelah stroke atau gangguan saraf.</p>
+            <dl class="service-meta">
+              <div><dt>Durasi:</dt><dd>sekitar 60 menit</dd></div>
+              <div><dt>Cocok untuk:</dt><dd>Pasien yang kondisinya sudah stabil menurut dokter, beserta keluarga yang mendampingi</dd></div>
+            </dl>
+            <a class="btn btn-wa btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan Rehabilitasi Pasca Stroke."><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Tanya via WhatsApp</a>
+          </article>
+
+          <article class="card service reveal" data-service-name="Fisioterapi Anak">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-smile"/></svg></span>
+            <h3>Fisioterapi Anak</h3>
+            <p>Stimulasi dan latihan untuk anak dengan keterlambatan perkembangan motorik, otot lemah atau kaku, maupun masalah postur.</p>
+            <dl class="service-meta">
+              <div><dt>Durasi:</dt><dd>sekitar 30-45 menit</dd></div>
+              <div><dt>Cocok untuk:</dt><dd>Bayi dan anak yang terlambat duduk, merangkak, atau berjalan; orang tua ikut didampingi</dd></div>
+            </dl>
+            <a class="btn btn-wa btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan Fisioterapi Anak."><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Tanya via WhatsApp</a>
+          </article>
+
+          <article class="card service reveal" data-service-name="Fisioterapi Lansia dan Keseimbangan">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <h3>Fisioterapi Lansia dan Keseimbangan</h3>
+            <p>Latihan untuk menjaga kekuatan, kelenturan, dan keseimbangan, serta membantu mengurangi risiko jatuh.</p>
+            <dl class="service-meta">
+              <div><dt>Durasi:</dt><dd>sekitar 45-60 menit</dd></div>
+              <div><dt>Cocok untuk:</dt><dd>Lansia dengan nyeri sendi, mudah goyah, atau sulit berjalan</dd></div>
+            </dl>
+            <a class="btn btn-wa btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan Fisioterapi Lansia dan Keseimbangan."><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Tanya via WhatsApp</a>
+          </article>
+
+          <!-- OPSIONAL: hapus kartu ini bila klinik tidak melayani kunjungan rumah -->
+          <article class="card service reveal" data-service-name="Fisioterapi Kunjungan Rumah">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+            <h3>Fisioterapi Kunjungan Rumah</h3>
+            <p>Fisioterapis datang ke rumah bagi pasien yang sulit bepergian, misalnya setelah stroke atau operasi.</p>
+            <dl class="service-meta">
+              <div><dt>Durasi:</dt><dd>sekitar 60 menit</dd></div>
+              <div><dt>Cocok untuk:</dt><dd>Pasien di area [AREA KUNJUNGAN, mis. Kota Bima dan sekitarnya]</dd></div>
+            </dl>
+            <a class="btn btn-wa btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan Fisioterapi Kunjungan Rumah."><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Tanya via WhatsApp</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. TIM FISIOTERAPIS ============ -->
+    <!-- JANGAN karang nama/gelar/nomor izin. Ganti placeholder dengan data asli yang sudah disetujui fisioterapis. -->
+    <section class="section" id="terapis" aria-labelledby="terapis-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Tim Fisioterapis</p>
+          <h2 id="terapis-title">Kenali fisioterapis yang akan mendampingi Anda</h2>
+          <p>Setiap fisioterapis kami memiliki bidang yang berbeda. Pilih yang paling sesuai, atau biarkan kami membantu mencocokkan.</p>
+        </div>
+        <div class="grid grid-auto">
+          <article class="card therapist reveal" data-therapist-name="[NAMA TERAPIS 1]">
+            <!-- GANTI foto: assets/fisioterapis-nama-bima.webp (WebP, 320x320) -->
+            <img src="assets/terapis-placeholder.svg" alt="Foto [NAMA TERAPIS 1], fisioterapis di [NAMA KLINIK] Bima" width="220" height="220" loading="lazy">
+            <h3>[NAMA TERAPIS 1], [GELAR]</h3>
+            <p class="role">[SPESIALISASI, mis. Fisioterapi Muskuloskeletal dan Olahraga]</p>
+            <p class="license">Nomor STR/SIPF: [NOMOR IZIN PRAKTIK]</p>
+            <a class="btn btn-outline btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin menjadwalkan sesi dengan [NAMA TERAPIS 1].">Jadwalkan dengan [NAMA TERAPIS 1]</a>
+          </article>
+          <article class="card therapist reveal" data-therapist-name="[NAMA TERAPIS 2]">
+            <img src="assets/terapis-placeholder.svg" alt="Foto [NAMA TERAPIS 2], fisioterapis di [NAMA KLINIK] Bima" width="220" height="220" loading="lazy">
+            <h3>[NAMA TERAPIS 2], [GELAR]</h3>
+            <p class="role">[SPESIALISASI, mis. Fisioterapi Neurologi dan Geriatri]</p>
+            <p class="license">Nomor STR/SIPF: [NOMOR IZIN PRAKTIK]</p>
+            <a class="btn btn-outline btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin menjadwalkan sesi dengan [NAMA TERAPIS 2].">Jadwalkan dengan [NAMA TERAPIS 2]</a>
+          </article>
+          <article class="card therapist reveal" data-therapist-name="[NAMA TERAPIS 3]">
+            <img src="assets/terapis-placeholder.svg" alt="Foto [NAMA TERAPIS 3], fisioterapis di [NAMA KLINIK] Bima" width="220" height="220" loading="lazy">
+            <h3>[NAMA TERAPIS 3], [GELAR]</h3>
+            <p class="role">[SPESIALISASI, mis. Fisioterapi Pediatri]</p>
+            <p class="license">Nomor STR/SIPF: [NOMOR IZIN PRAKTIK]</p>
+            <a class="btn btn-outline btn-sm" href="#booking" data-wa-message="Halo {clinic}, saya ingin menjadwalkan sesi dengan [NAMA TERAPIS 3].">Jadwalkan dengan [NAMA TERAPIS 3]</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. ALUR KONSULTASI ============ -->
+    <section class="section section-tint" id="alur" aria-labelledby="alur-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Alur Konsultasi</p>
+          <h2 id="alur-title">Empat langkah menuju sesi pertama</h2>
+          <p>Prosesnya dibuat sederhana, supaya Anda tidak perlu khawatir saat memulai.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal"><h3>Chat via WhatsApp</h3><p>Ceritakan keluhan Anda secara singkat: bagian tubuh mana, sejak kapan, dan apa yang memperberat.</p></li>
+          <li class="step reveal"><h3>Pilih layanan dan jadwal</h3><p>Kami bantu mencocokkan layanan dan fisioterapis, lalu menyepakati jadwal yang sesuai.</p></li>
+          <li class="step reveal"><h3>Konfirmasi dan persiapan</h3><p>Anda menerima konfirmasi jadwal, alamat klinik, informasi biaya, dan saran pakaian serta dokumen yang dibawa.</p></li>
+          <li class="step reveal"><h3>Sesi pertama</h3><p>Fisioterapis menilai kondisi Anda, menjelaskan rencana terapi, lalu memulai penanganan bila sesuai.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 7. PAKET & HARGA ============ -->
+    <!-- ISI harga asli. Jangan tampilkan harga yang belum pasti. -->
+    <section class="section" id="paket" aria-labelledby="paket-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Paket dan Harga</p>
+          <h2 id="paket-title">Pilihan paket yang transparan</h2>
+          <p>Mulai dari satu sesi penilaian, atau paket beberapa sesi bila Anda memerlukan terapi yang berkelanjutan.</p>
+        </div>
+        <div class="grid grid-auto packages">
+          <article class="card package reveal" data-package-name="Asesmen Awal">
+            <h3>Asesmen Awal</h3>
+            <p class="price">Rp [HARGA] <small>/ sesi</small></p>
+            <ul class="checklist">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Wawancara keluhan dan pemeriksaan gerak</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Penjelasan kondisi dan rencana terapi</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Cocok untuk memulai dan berkenalan</li>
+            </ul>
+            <a class="btn btn-outline" href="#booking" data-wa-message="Halo {clinic}, saya tertarik dengan paket Asesmen Awal.">Pilih Paket</a>
+          </article>
+
+          <article class="card package featured reveal" data-package-name="Paket 6 Sesi">
+            <span class="badge">Paling Dipilih</span>
+            <h3>Paket 6 Sesi</h3>
+            <p class="price">Rp [HARGA] <small>/ 6 sesi</small></p>
+            <ul class="checklist">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Enam sesi terapi dengan program personal</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Evaluasi perkembangan berkala</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Panduan latihan untuk di rumah</li>
+            </ul>
+            <a class="btn btn-primary" href="#booking" data-wa-message="Halo {clinic}, saya tertarik dengan paket Paket 6 Sesi.">Pilih Paket</a>
+          </article>
+
+          <article class="card package reveal" data-package-name="Paket 12 Sesi">
+            <h3>Paket 12 Sesi</h3>
+            <p class="price">Rp [HARGA] <small>/ 12 sesi</small></p>
+            <ul class="checklist">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Program lanjutan untuk pemulihan jangka panjang</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Cocok untuk rehabilitasi pasca stroke atau operasi</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Jadwal dapat disesuaikan</li>
+            </ul>
+            <a class="btn btn-outline" href="#booking" data-wa-message="Halo {clinic}, saya tertarik dengan paket Paket 12 Sesi.">Pilih Paket</a>
+          </article>
+        </div>
+        <p class="price-note">Catatan: harga dapat berubah sewaktu-waktu. Kami akan mengonfirmasi biaya terbaru sebelum sesi Anda dimulai.</p>
+      </div>
+    </section>
+
+    <!-- ============ 8. TESTIMONI ============ -->
+    <!-- WAJIB diganti dengan testimoni asli yang sudah mendapat izin tertulis/persetujuan pasien. Hanya inisial. -->
+    <section class="section section-alt" id="testimoni" aria-labelledby="testimoni-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Testimoni</p>
+          <h2 id="testimoni-title">Cerita dari mereka yang pernah datang</h2>
+        </div>
+        <div class="carousel reveal" data-carousel role="region" aria-roledescription="carousel" aria-label="Testimoni pasien">
+          <div class="carousel-track" data-carousel-track tabindex="0" aria-live="off">
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 dari 3">
+              <div class="card">
+                <blockquote>"[ISI TESTIMONI ASLI 1. Tulis dengan kata-kata pasien, tanpa janji hasil.]"</blockquote>
+                <figcaption><span class="avatar-initial" aria-hidden="true">A.R.</span> A.R., [LAYANAN YANG DIIKUTI]</figcaption>
+                <span class="placeholder-note sample-tag">Testimoni contoh - ganti dengan testimoni asli yang sudah mendapat izin pasien</span>
+              </div>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 dari 3">
+              <div class="card">
+                <blockquote>"[ISI TESTIMONI ASLI 2. Tulis dengan kata-kata pasien, tanpa janji hasil.]"</blockquote>
+                <figcaption><span class="avatar-initial" aria-hidden="true">S.N.</span> S.N., [LAYANAN YANG DIIKUTI]</figcaption>
+                <span class="placeholder-note sample-tag">Testimoni contoh - ganti dengan testimoni asli yang sudah mendapat izin pasien</span>
+              </div>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 dari 3">
+              <div class="card">
+                <blockquote>"[ISI TESTIMONI ASLI 3. Tulis dengan kata-kata pasien, tanpa janji hasil.]"</blockquote>
+                <figcaption><span class="avatar-initial" aria-hidden="true">M.H.</span> M.H., [LAYANAN YANG DIIKUTI]</figcaption>
+                <span class="placeholder-note sample-tag">Testimoni contoh - ganti dengan testimoni asli yang sudah mendapat izin pasien</span>
+              </div>
+            </figure>
+          </div>
+          <div class="carousel-controls">
+            <button class="icon-btn" type="button" data-carousel-prev aria-label="Testimoni sebelumnya"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <div class="dots" data-carousel-dots></div>
+            <button class="icon-btn" type="button" data-carousel-next aria-label="Testimoni berikutnya"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <button class="icon-btn" type="button" data-carousel-toggle aria-label="Jeda putar otomatis"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. FAQ ============ -->
+    <!-- Isi FAQ harus sama dengan FAQPage JSON-LD di <head>. Ubah di kedua tempat. -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Pertanyaan yang sering diajukan</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>Berapa biaya fisioterapi di [NAMA KLINIK]? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Biaya bergantung pada jenis layanan dan paket yang dipilih. Anda dapat melihat gambaran harga di bagian Paket dan Harga, atau menanyakannya langsung via WhatsApp. Harga dapat berubah sewaktu-waktu, sehingga kami akan mengonfirmasi biaya sebelum sesi dimulai.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah saya perlu surat rujukan dokter untuk berobat? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Tidak selalu. Anda bisa datang untuk penilaian awal oleh fisioterapis. Untuk kondisi tertentu, misalnya setelah operasi atau bila ditemukan tanda yang perlu diperiksa dokter, kami akan menyarankan pemeriksaan atau rujukan lebih lanjut. [SESUAIKAN kebijakan klinik terkait rujukan dan jaminan kesehatan]</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Berapa lama satu sesi berlangsung? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Durasi sesi berbeda untuk tiap layanan, umumnya antara 30 sampai 60 menit. Durasi tepatnya tertera pada kartu layanan dan akan dikonfirmasi saat Anda menjadwalkan sesi.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah terapinya terasa sakit? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Sebagian teknik mungkin terasa kurang nyaman, terutama pada area yang sedang nyeri atau kaku. Fisioterapis akan menyesuaikan intensitasnya, dan Anda boleh menyampaikan kapan saja bila terasa terlalu sakit.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Bagaimana jika saya perlu membatalkan atau mengganti jadwal? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Mohon kabari kami melalui WhatsApp sesegera mungkin agar jadwal bisa diatur ulang. Ketentuan pembatalan: [KEBIJAKAN PEMBATALAN, mis. pemberitahuan minimal 24 jam sebelum sesi].</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah sesi bisa dilakukan online, atau harus datang langsung? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Penilaian awal dan terapi manual paling baik dilakukan secara langsung di klinik kami di Bima. Konsultasi online tersedia untuk diskusi keluhan, panduan latihan di rumah, dan tindak lanjut melalui [PLATFORM, mis. Google Meet atau WhatsApp Video].</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apa yang perlu saya siapkan untuk sesi pertama? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Kenakan pakaian longgar yang nyaman. Bawa hasil pemeriksaan yang pernah Anda miliki, seperti rontgen, MRI, atau surat dari dokter, serta daftar obat yang sedang dikonsumsi. Tidak apa-apa bila Anda belum memilikinya; fisioterapis tetap akan memulai dengan penilaian.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah melayani pasien dari Kabupaten Bima dan Dompu? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Ya, kami menerima pasien dari Kota Bima, Kabupaten Bima, dan Dompu. Hubungi kami via WhatsApp untuk mengatur jadwal yang sesuai dengan perjalanan Anda.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah tersedia sesi online untuk pasien di luar Kota Bima? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Tersedia untuk konsultasi dan panduan latihan. Pasien di luar Kota Bima, termasuk dari Kabupaten Bima, Dompu, atau daerah lain di NTB, dapat mengikuti sesi online selama memiliki koneksi internet yang cukup stabil. Bila diperlukan terapi langsung, kami akan mengatur jadwal kunjungan ke klinik.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Keluhan apa saja yang bisa ditangani fisioterapi? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Misalnya nyeri punggung, leher, dan bahu, nyeri sendi, cedera olahraga, pemulihan setelah operasi atau patah tulang, kelemahan setelah stroke, gangguan keseimbangan pada lansia, hingga keterlambatan perkembangan motorik anak. Jika Anda ragu apakah keluhan Anda sesuai, silakan tanyakan lebih dulu via WhatsApp.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Berapa kali saya perlu datang? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Setiap orang berbeda. Jumlah pertemuan bergantung pada kondisi dan tujuan Anda, dan akan dijelaskan fisioterapis setelah penilaian awal. Kami tidak menjanjikan hasil tertentu, tetapi kami akan menyusun program yang sesuai dan mengevaluasinya secara berkala.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah layanan ini bisa dipakai untuk kondisi darurat? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Tidak. Layanan kami bukan layanan darurat. Jika Anda mengalami nyeri dada, sesak napas, kelemahan atau mati rasa mendadak, atau cedera berat, segera hubungi [NOMOR DARURAT/IGD] atau datang ke IGD rumah sakit terdekat.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. FORM BOOKING ============ -->
+    <section class="section section-alt" id="booking" aria-labelledby="booking-title">
+      <div class="container booking-grid">
+        <div class="reveal">
+          <p class="eyebrow">Booking</p>
+          <h2 id="booking-title">Atur jadwal fisioterapi Anda</h2>
+          <p>Isi formulir singkat ini. Setelah Anda menekan tombol kirim, WhatsApp akan terbuka dengan pesan yang sudah tersusun rapi. Kami akan membalas untuk mengonfirmasi jadwal.</p>
+          <p>Data formulir <strong>tidak disimpan atau dikirim ke server mana pun</strong>. Pesan hanya dikirim lewat WhatsApp Anda sendiri. Baca <a href="privacy.html">Kebijakan Privasi</a>.</p>
+          <div class="notice" role="note">
+            <strong>Bukan layanan darurat.</strong> Jika Anda mengalami nyeri dada, sesak napas, kelemahan atau mati rasa mendadak, atau cedera berat, segera hubungi <strong>[NOMOR DARURAT/IGD]</strong> atau datang ke IGD rumah sakit terdekat.
+          </div>
+        </div>
+
+        <form class="card form reveal" id="booking-form" novalidate>
+          <div class="field">
+            <label for="f-name">Nama <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="e-name" maxlength="80">
+            <p class="field-error" id="e-name"></p>
+          </div>
+          <div class="field">
+            <label for="f-wa">Nomor WhatsApp <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="f-wa" name="wa" inputmode="tel" autocomplete="tel" placeholder="08xxxxxxxxxx" required aria-describedby="h-wa e-wa" maxlength="20">
+            <span class="hint" id="h-wa">Contoh: 081234567890</span>
+            <p class="field-error" id="e-wa"></p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-service">Layanan <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-service" name="service" required aria-describedby="e-service" data-fill="service">
+                <option value="">Pilih layanan</option>
+                <option value="Belum yakin, mohon disarankan">Belum yakin, mohon disarankan</option>
+              </select>
+              <p class="field-error" id="e-service"></p>
+            </div>
+            <div class="field">
+              <label for="f-therapist">Fisioterapis pilihan</label>
+              <select id="f-therapist" name="therapist" data-fill="therapist">
+                <option value="Siapa saja yang tersedia">Siapa saja yang tersedia</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-date">Tanggal pilihan <span class="req" aria-hidden="true">*</span></label>
+              <input type="date" id="f-date" name="date" required aria-describedby="e-date">
+              <p class="field-error" id="e-date"></p>
+            </div>
+            <div class="field">
+              <label for="f-time">Waktu pilihan (WITA) <span class="req" aria-hidden="true">*</span></label>
+              <input type="time" id="f-time" name="time" required aria-describedby="e-time">
+              <p class="field-error" id="e-time"></p>
+            </div>
+          </div>
+          <fieldset class="field" aria-describedby="e-mode">
+            <legend>Jenis sesi <span class="req" aria-hidden="true">*</span></legend>
+            <div class="choice-group">
+              <label class="choice"><input type="radio" name="mode" value="Offline (tatap muka)"> Offline</label>
+              <label class="choice"><input type="radio" name="mode" value="Online (konsultasi)"> Online</label>
+            </div>
+            <p class="field-error" id="e-mode"></p>
+          </fieldset>
+          <div class="field">
+            <label for="f-note">Keluhan singkat (opsional)</label>
+            <textarea id="f-note" name="note" maxlength="500" aria-describedby="h-note"></textarea>
+            <span class="hint" id="h-note">Mis. area yang nyeri dan sejak kapan. Detailnya bisa disampaikan saat penilaian awal.</span>
+          </div>
+          <div class="field">
+            <label class="consent" for="f-consent">
+              <input type="checkbox" id="f-consent" name="consent" required aria-describedby="e-consent">
+              <span>Saya setuju data di atas dikirim lewat WhatsApp untuk keperluan penjadwalan, sesuai <a href="privacy.html">Kebijakan Privasi</a>.</span>
+            </label>
+            <p class="field-error" id="e-consent"></p>
+          </div>
+          <button class="btn btn-wa btn-block" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Kirim lewat WhatsApp</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 11. LOKASI ============ -->
+    <!-- NAP di sini HARUS sama persis dengan footer dan JSON-LD -->
+    <section class="section" id="lokasi" aria-labelledby="lokasi-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Lokasi</p>
+          <h2 id="lokasi-title">Lokasi klinik fisioterapi di Bima, NTB</h2>
+          <p>Mudah dijangkau dari Kota Bima, Kabupaten Bima, dan Dompu.</p>
+        </div>
+        <div class="location-grid">
+          <div class="reveal">
+            <div class="map-wrap">
+              <!-- GANTI src: Google Maps > Bagikan > Sematkan peta > salin URL di dalam src="..." -->
+              <iframe title="Peta lokasi [NAMA KLINIK] di Bima" src="https://www.google.com/maps?q=Kota+Bima,+Nusa+Tenggara+Barat&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              <p class="map-caption">Peta sementara menampilkan Kota Bima. Ganti dengan lokasi klinik yang tepat.</p>
+            </div>
+          </div>
+          <div class="reveal">
+            <ul class="info-list">
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+                <address><strong>[NAMA KLINIK]</strong><br>[JALAN, NOMOR], Kel. [KELURAHAN], Kec. [KECAMATAN], [KOTA BIMA / KABUPATEN BIMA], Nusa Tenggara Barat [KODE POS]<br>Telepon: <a href="#" data-tel-link><span data-config-text="phone">[NOMOR TELEPON]</span></a></address>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+                <div><strong>Patokan lokasi</strong><br>[PATOKAN LOKASI, mis. dekat masjid / pasar / kantor yang dikenal warga]</div>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+                <div>
+                  <strong>Jam operasional (WITA)</strong>
+                  <!-- SESUAIKAN: jam harus sama dengan CONFIG.hours di js/main.js dan openingHoursSpecification di JSON-LD -->
+                  <dl class="hours" aria-label="Jam operasional">
+                    <div data-day="1"><dt>Senin</dt><dd>08.00 - 16.00</dd></div>
+                    <div data-day="2"><dt>Selasa</dt><dd>08.00 - 16.00</dd></div>
+                    <div data-day="3"><dt>Rabu</dt><dd>08.00 - 16.00</dd></div>
+                    <div data-day="4"><dt>Kamis</dt><dd>08.00 - 16.00</dd></div>
+                    <div data-day="5"><dt>Jumat</dt><dd>08.00 - 16.00</dd></div>
+                    <div data-day="6"><dt>Sabtu</dt><dd>08.00 - 12.00</dd></div>
+                    <div data-day="0"><dt>Minggu</dt><dd>Tutup</dd></div>
+                  </dl>
+                  <p class="open-status" data-open-status style="margin-top:.8rem"><span class="status-dot" aria-hidden="true"></span><span data-open-text>Memeriksa jam buka...</span></p>
+                </div>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+                <div><strong>Parkir dan akses</strong><br>[INFO PARKIR, mis. tersedia parkir motor dan mobil di halaman klinik] / [INFO AKSES, mis. ruang terapi di lantai dasar, ramah kursi roda dan lansia]</div>
+              </li>
+            </ul>
+            <h3>Petunjuk arah</h3>
+            <!-- ISI dengan rute nyata dari titik-titik yang umum dikenal warga -->
+            <ul class="directions">
+              <li><strong>Dari pusat Kota Bima:</strong> [PETUNJUK ARAH]</li>
+              <li><strong>Dari Terminal Dara:</strong> [PETUNJUK ARAH]</li>
+              <li><strong>Dari Pelabuhan Bima:</strong> [PETUNJUK ARAH]</li>
+              <li><strong>Dari Bandara Sultan Muhammad Salahuddin:</strong> [PETUNJUK ARAH]</li>
+              <li><strong>Dari Kabupaten Bima dan Dompu:</strong> [PETUNJUK ARAH]</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#" data-directions-link target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Buka di Google Maps</a>
+              <a class="btn btn-outline" href="#" data-tel-link><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> Telepon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 12. FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#top" aria-label="[NAMA KLINIK] - ke atas halaman">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+              <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 31c-6-3-9-7.5-9-12 5 0 8 1.8 9 5 1-3.2 4-5 9-5 0 4.5-3 9-9 12z" fill="currentColor"/>
+            </svg>
+            <span>[NAMA KLINIK]</span>
+          </a>
+          <p>Klinik fisioterapi di Bima, Nusa Tenggara Barat.</p>
+          <div class="socials">
+            <!-- GANTI href dengan akun media sosial asli -->
+            <a href="[URL INSTAGRAM]" target="_blank" rel="noopener noreferrer" aria-label="Instagram [NAMA KLINIK]"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            <a href="[URL FACEBOOK]" target="_blank" rel="noopener noreferrer" aria-label="Facebook [NAMA KLINIK]"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+            <a href="[URL TIKTOK]" target="_blank" rel="noopener noreferrer" aria-label="TikTok [NAMA KLINIK]"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h2>Kontak</h2>
+          <address>
+            <ul class="footer-links">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>[NAMA KLINIK], [JALAN, NOMOR], Kel. [KELURAHAN], Kec. [KECAMATAN], [KOTA BIMA / KABUPATEN BIMA], Nusa Tenggara Barat [KODE POS]</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a href="#" data-tel-link><span data-config-text="phone">[NOMOR TELEPON]</span></a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="#" data-mail-link><span data-config-text="email">[EMAIL]</span></a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><a href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan fisioterapi.">Chat WhatsApp</a></li>
+            </ul>
+          </address>
+        </div>
+        <div>
+          <h2>Tautan</h2>
+          <ul class="footer-links">
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#terapis">Fisioterapis</a></li>
+            <li><a href="#paket">Paket dan Harga</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="privacy.html">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><strong>Layanan ini bukan layanan darurat.</strong> Dalam keadaan darurat medis, hubungi [NOMOR DARURAT/IGD] atau datang ke IGD rumah sakit terdekat.</p>
+        <p>&copy; <span data-year>2026</span> [NAMA KLINIK]. Hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tombol melayang: WhatsApp (bawah) + kembali ke atas (di atasnya, tidak saling menutupi) -->
+  <div class="fab-stack">
+    <a class="fab-top" id="back-to-top" href="#top" aria-label="Kembali ke atas"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
+    <div class="fab-wa-wrap">
+      <a class="fab-wa" href="#booking" data-wa-message="Halo {clinic}, saya ingin bertanya tentang layanan fisioterapi." aria-label="Chat dengan kami via WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+      <span class="fab-tooltip" aria-hidden="true">Chat dengan kami</span>
+    </div>
+  </div>
+</body>
+</html>
