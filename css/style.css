@@ -207,7 +207,8 @@ html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after {
   color: var(--text); text-decoration: none;
 }
 .brand:hover { color: var(--primary); }
-.brand span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+/* Nama boleh turun baris (tidak dipotong); area sentuh minimal 44px */
+.site-header .brand { display: inline-flex; align-items: center; min-height: var(--tap-min); }
 
 .nav ul { list-style: none; display: flex; gap: var(--space-1); }
 .nav a:not(.btn) {
@@ -540,7 +541,7 @@ textarea { min-height: var(--textarea-min-h); resize: vertical; }
 .site-footer a { color: var(--footer-link); }
 .site-footer a:hover { color: var(--footer-text); }
 .site-footer h2 { margin-bottom: var(--space-3); font-family: var(--font-body); font-size: var(--fs-body); font-weight: var(--fw-bold); letter-spacing: 0; color: var(--footer-text); }
-.site-footer .brand { display: inline-block; margin-bottom: var(--space-3); font-size: var(--fs-h3); color: var(--footer-text); }
+.site-footer .brand { display: inline-flex; align-items: center; min-height: var(--tap-min); margin-bottom: var(--space-3); font-size: var(--fs-h3); color: var(--footer-text); }
 .footer-grid { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--footer-col-min)), 1fr)); }
 .footer-grid p, .footer-grid li { font-size: var(--fs-small); color: var(--footer-muted); }
 .footer-links { list-style: none; display: grid; gap: var(--space-1); }
@@ -580,7 +581,28 @@ textarea { min-height: var(--textarea-min-h); resize: vertical; }
 }
 .fab-wa-wrap:hover .fab-tooltip, .fab-wa:focus-visible + .fab-tooltip { opacity: 1; visibility: visible; }
 
+/* HP sempit (<= 400px): rapatkan agar teks tombol dan nama klinik tidak pecah/terpotong */
+@media (max-width: 400px) {
+  .site-header .brand { font-size: var(--fs-small); }
+  .eyebrow { letter-spacing: 0.04em; gap: var(--space-2); }
+  .eyebrow::before { width: var(--space-4); }
+  .header-inner { gap: var(--space-2); }
+  .header-actions { gap: var(--space-1); }
+  .btn { padding-inline: var(--space-4); gap: var(--space-2); }
+  .card, .form.card { padding: var(--space-4); }
+  .therapist .btn { width: 100%; }
+  .therapist .btn .icon { display: none; }
+}
+@media (max-width: 360px) {
+  .btn { padding-inline: var(--space-3); }
+  /* Label panjang boleh turun baris dengan rapi (bukan pil yang pecah) */
+  .therapist .btn { border-radius: var(--radius-md); }
+}
+
 /* ---------- 11. HALAMAN PRIVASI ---------- */
+/* Tombol kembali: teks tidak boleh pecah; di HP cukup "Beranda" */
+.header-actions .btn { white-space: nowrap; }
+@media (max-width: 599px) { .back-label-long { display: none; } }
 .page-top { padding-block: var(--space-7) var(--space-4); }
 .prose { max-width: var(--width-reading); }
 .prose h1 { font-size: var(--fs-h1); }
